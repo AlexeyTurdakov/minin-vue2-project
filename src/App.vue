@@ -1,11 +1,29 @@
 <template>
   <div id="app">
-    <h1>hi</h1>
+    <h1>{{ carName }}</h1>
+    <!-- ставим обработчик v-on:имя передаваемого параметра и можем назначить
+      функцию или написать в in-line стиле -->
+    <app-car
+      @nameChanged="carName = $event"
+      :carName="carName"
+      :carYear="carYear"
+    ></app-car>
   </div>
 </template>
 
 <script>
+import Car from "./components/AppCar.vue";
+
 export default {
+  data() {
+    return {
+      carName: "ford",
+      carYear: 2015,
+    };
+  },
+  components: {
+    appCar: Car,
+  },
   
 };
 </script>
