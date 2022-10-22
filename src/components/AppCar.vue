@@ -3,14 +3,13 @@
     <h2>Name: {{ carName }} / {{ reverseName }}</h2>
     <h2>Year: {{ carYear }}</h2>
     <button @click="changeName">change name</button>
+    <!-- заведем новую кнопку -->
+    <button @click="changeFunc()">change name - func from parent</button>
   </div>
 </template>
 
 <script>
 export default {
-  // мы меняем имя внутри компонента
-  // изменения надо переать в родительский
-
   props: {
     carName: String,
     carYear: {
@@ -18,14 +17,13 @@ export default {
       reqired: true,
       default: 2018,
     },
+    // запишем в props
+    changeFunc: Function,
   },
 
   methods: {
     changeName: function () {
       this.carName = "Mazds";
-      // у каждого компонента есть специальный
-      // метод $emit(имя паметра который прослушиваем, текущее значение)
-      // "nameChanged" название события которое мы слушаем в родительском компоненте
       this.$emit("nameChanged", this.carName);
     },
   },
