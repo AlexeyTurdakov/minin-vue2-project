@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <h1>{{ carName }}</h1>
-    <!-- ставим обработчик v-on:имя передаваемого параметра и можем назначить
-      функцию или написать в in-line стиле -->
+    <!-- Альтернативный способ взаимодействовать с компонентами -->
+    <!-- байндим новую функцию в компонент -->
     <app-car
-      @nameChanged="carName = $event"
       :carName="carName"
       :carYear="carYear"
+      :changeFunc="changeNameAudi"
+      @nameChanged="carName = $event"
     ></app-car>
   </div>
 </template>
@@ -24,7 +25,13 @@ export default {
   components: {
     appCar: Car,
   },
-  
+
+  // заведем новый метод:
+  methods: {
+    changeNameAudi() {
+      this.carName = "Audi";
+    },
+  },
 };
 </script>
 
