@@ -1,41 +1,24 @@
 <template>
   <div id="app">
-    <h1>{{ carName }}</h1>
-    <!-- Альтернативный способ взаимодействовать с компонентами -->
-    <!-- байндим новую функцию в компонент -->
-    <app-car
-      :carName="carName"
-      :carYear="carYear"
-      :changeFunc="changeNameAudi"
-      @nameChanged="carName = $event"
-    ></app-car>
+    //обращаемся к диретиве
+    <h2 v-colored>{{ title }}</h2>
   </div>
 </template>
 
 <script>
-import Car from "./components/AppCar.vue";
-
 export default {
   data() {
     return {
-      carName: "ford",
-      carYear: 2015,
+      title: "am title",
     };
   },
-  components: {
-    appCar: Car,
-  },
+  components: {},
 
-  // заведем новый метод:
-  methods: {
-    changeNameAudi() {
-      this.carName = "Audi";
-    },
-  },
+  methods: {},
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
