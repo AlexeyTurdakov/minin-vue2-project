@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    //обращаемся к диретиве
-    <h2 v-colored>{{ title }}</h2>
+    <h2 v-colored v-if="visible">{{ title }}</h2>
+    <button @click="visible = !visible">visible</button>
+    <button @click="title = 'new Title'">newTitle</button>
   </div>
 </template>
 
@@ -10,6 +11,7 @@ export default {
   data() {
     return {
       title: "am title",
+      visible: true,
     };
   },
   components: {},
