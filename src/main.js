@@ -1,13 +1,12 @@
 import Vue from "vue";
 import App from "./App.vue";
-//импортируем директиву
-import Color from "./color.js";
+import VueRouter from "vue-router"; // подключаем
+import router from "./routes";
 
-// регистрируем используя метод directive
-// первым паметром передаем название в виде строки
-//вторым параметром передаём объект (экспортируем объект из color.js)
-Vue.directive("colored", Color);
+
+Vue.use(VueRouter);
 
 new Vue({
+  router, // регистрируем
   render: (h) => h(App),
 }).$mount("#app");
