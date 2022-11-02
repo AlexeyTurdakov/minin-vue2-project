@@ -1,12 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
-import VueRouter from "vue-router"; // подключаем
-import router from "./routes";
+import VueResource from "vue-resource";
 
-
-Vue.use(VueRouter);
+Vue.use(VueResource);
 
 new Vue({
-  router, // регистрируем
   render: (h) => h(App),
 }).$mount("#app");
